@@ -5,6 +5,27 @@ function updateData() {
 	getWeightWriter(99);
 }
 
+function saveWeight() {
+	var userId = document.getElementById("user-id-save-data").value
+	var weight = document.getElementById("measurement-save-data").value
+	console.log("saveWeight(): ");
+	
+	var response = fetch(`http://localhost:8001/add_measurement/user_id=${userId}&weight=${weight}`, {method: 'PUT'})
+	.then((response) => {
+		if (response.status == 201) {
+			document.getElementById("save-user-data-response").innerHTML = "Data saved!";
+			console.log("Data saved!")
+		} else if (response.status == 404){
+			document.getElementById("save-user-data-response").innerHTML = "Any field cannot be empty!";
+			console.log("Any field cannot be empty!")
+		} else {
+			document.getElementById("save-user-data-response").innerHTML = "Error!";
+			console.log("err!")
+		}
+     
+      });
+}
+
 function getWeightWriter() {
 	var userId = document.getElementById("fuseridin").value
 	console.log("getWeightWriter(): ");
@@ -33,6 +54,7 @@ function getWeightWriter() {
 
 function init() {
   document.getElementById('butRefresh').addEventListener('click', updateData);
+  document.getElementById('butSaveWeight').addEventListener('click', saveWeight);
   document.getElementById('butGetWeight').addEventListener('click', getWeightWriter);
 }
 
