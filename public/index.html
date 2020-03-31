@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weight tracker</title>
+  <meta name="codelab" content="your-first-pwa-v3">
+  <link rel="stylesheet" type="text/css" href="/styles/inline.css">
+  <link rel="icon" href="/images/favicon.ico" type="image/x-icon" />
+
+ 
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="Weight tracker">
+  <link rel="apple-touch-icon" href="/images/icons/icon-152x152.png">
+  <meta name="description" content="Simple weight tracker">
+  <meta name="theme-color" content="#2F3BA2" />
+
+</head>
+<body>
+
+  <header class="header">
+    <h1>
+      Weight tracker
+    </h1>
+    <button id="butInstall" aria-label="Install" hidden></button>
+    <button id="butRefresh" aria-label="Refresh"></button>
+  </header>
+
+  <main class="main">
+
+    <button id="butAdd" class="fab" aria-label="Add">
+      <span class="icon add"></span>
+    </button>
+
+    <div id="about" class="weight-card">
+      <b>My Weight tracker</b>
+    </div>
+	
+	<div id="getuserdata" class="weight-card">
+		<form>
+		  <label for="fuserid">User id:</label><br>
+		  <input type="text" id="fuseridin" name="fuseridin"><br><br>
+		  <label for="fweightlab">Your weight:</label><br>
+		  <p id="fweight"> </p><br><br>
+		  <button id="butGetWeight" aria-label="Get-last-measurement" onClick="return false;">Get last measurement</button>
+		</form>
+	</div>
+  </main>
+
+  <script src="/scripts/app.js"></script>
+
+  <script>
+    if ('serviceWorker' in navigator) {
+	  window.addEventListener('load', () => {
+		navigator.serviceWorker.register('/service-worker.js')
+			.then((reg) => {
+			  console.log('Service worker registered.', reg);
+			});
+	  });
+	}
+  </script>
+
+</body>
+</html>
