@@ -30,36 +30,61 @@
 
   <main class="main">
 
+	<div class="menu-tab">
+	  <button class="menu-tab-links" onclick="openCity(event, 'main-tab')">Main</button>
+	  <button class="menu-tab-links" onclick="openCity(event, 'chart-tab')">Chart</button>
+	</div>
+	
     <button id="butAdd" class="fab" aria-label="Add">
       <span class="icon add"></span>
     </button>
-
-    <div id="about" class="weight-card">
-      <b>My Weight tracker</b>
-    </div>
 	
-	<div id="saveuserdata" class="weight-card">
-		<form>
-		  <label for="fuserid">User id:</label><br>
-		  <input type="text" id="user-id-save-data" name="user-id-save-data"><br>
-		  <label for="lmeasurement">Measurement:</label><br>
-		  <input type="text" id="measurement-save-data" name="measurement-save-data"><br>
-		  <p id="save-user-data-response"></p><br>
-		  <button id="butSaveWeight" aria-label="Save" onClick="return false;">Save weight</button>
-		</form>
+	<div id="main-tab" class="tab-content"> 
+		
+		<div id="about" class="weight-card">
+		  <b>My Weight tracker</b>
+		</div>
+		
+		<div id="saveuserdata" class="weight-card">
+			<form>
+			  <label for="fuserid">User id:</label><br>
+			  <input type="text" id="user-id-save-data" name="user-id-save-data"><br>
+			  <label for="lmeasurement">Your weight:</label><br>
+			  <input type="text" id="measurement-save-data" name="measurement-save-data">
+			  <p id="save-user-data-response"></p>
+			  <button id="butSaveWeight" aria-label="Save" onClick="return false;">Save weight</button>
+			</form>
+		</div>
+			
+		<div id="getuserdata" class="weight-card">
+			<form>
+			  <label for="fuserid">User id:</label><br>
+			  <input type="text" id="fuseridin" name="fuseridin"><br><br>
+			  <label for="fweightlab">Your weight:</label><br>
+			  <p id="fweight"> </p><br><br>
+			  <button id="butGetWeight" aria-label="Get-last-measurement" onClick="return false;">Get last measurement</button>
+			</form>
+		</div>
+
+	</div>
+	
+	<div id="chart-tab" class="tab-content"> 
+		<div id="about" class="weight-card">
+		  <b>My Weight history</b>
+		</div>
+	
+		<div class="chart-container">
+			<canvas id="myChart"></canvas>
+			<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+			<!-- TODO: Create endpoint with source data for this endpoint -->
+			<!-- TODO: Change dummy data to data from endpoint -->
+			<script src="/scripts/weight_history_chart.js"></script>
+		</div>
 	</div>
 		
-	<div id="getuserdata" class="weight-card">
-		<form>
-		  <label for="fuserid">User id:</label><br>
-		  <input type="text" id="fuseridin" name="fuseridin"><br><br>
-		  <label for="fweightlab">Your weight:</label><br>
-		  <p id="fweight"> </p><br><br>
-		  <button id="butGetWeight" aria-label="Get-last-measurement" onClick="return false;">Get last measurement</button>
-		</form>
-	</div>
   </main>
 
+  <script src="/scripts/menu_tabs.js"></script>
   <script src="/scripts/app.js"></script>
 
   <script>

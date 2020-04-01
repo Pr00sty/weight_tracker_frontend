@@ -2,6 +2,7 @@
 
 const express = require('express');
 const fetch = require('node-fetch');
+const Chart = require('chart.js');
 
 const redirectToHTTPS = require('express-http-to-https').redirectToHTTPS;
 
