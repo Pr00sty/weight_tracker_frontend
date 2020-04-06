@@ -74,9 +74,13 @@
 		</div>
 	
 		<div class="chart-container">
+			<form>
+			  <label for="chartuserid">User id:</label><br>
+			  <input type="text" id="chartuseridin" name="fuseridin"><br>
+			  <button id="butGetWeightHistory" aria-label="Get-all-measurements" onClick="return false;">Get last measurement</button>
+			</form>
 			<canvas id="myChart"></canvas>
 			<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
-			<!-- TODO: Create endpoint with source data for this endpoint -->
 			<!-- TODO: Change dummy data to data from endpoint -->
 			<script src="/scripts/weight_history_chart.js"></script>
 		</div>

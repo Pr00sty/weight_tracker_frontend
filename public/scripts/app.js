@@ -49,6 +49,8 @@ function getWeightWriter() {
 		  console.log(-999);
         return null;
       });
+	  
+	// return weight;
 }
 
 
@@ -56,6 +58,7 @@ function init() {
   document.getElementById('butRefresh').addEventListener('click', updateData);
   document.getElementById('butSaveWeight').addEventListener('click', saveWeight);
   document.getElementById('butGetWeight').addEventListener('click', getWeightWriter);
+  document.getElementById('butGetWeightHistory').addEventListener('click', getWeightHistoryWriter);
 }
 
 init();
